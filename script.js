@@ -10,7 +10,6 @@ const firebaseConfig = {
     storageBucket: "popflix-de65c.firebasestorage.app",
     messagingSenderId: "219558339530",
     appId: "1:219558339530:web:1844367f37ea2556a4a533"
-    measurementId: "G-6RM4111K6Q"
 };
 
 // Initialisation Firebase
