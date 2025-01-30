@@ -29,8 +29,31 @@ async function fetchMovies() {
         img.alt = movie.title;
         img.classList.add("movie-poster");
         container.appendChild(img);
+     });
+async function fetchMovies() {
+    const querySnapshot = await getDocs(collection(db, "movies"));
+    
+    console.log("Films récupérés :", querySnapshot.docs.map(doc => doc.data())); // 🔥 Test ici
+
+    querySnapshot.forEach((doc) => {
+        const movie = doc.data();
+        
+        console.log("Film :", movie); // 🔥 Vérifie chaque film récupéré
+        
+        if (!movie.image) {
+            console.error("Pas d'image pour :", movie.title);
+            return;
+        }
+
+        const img = document.createElement("img");
+        img.src = movie.image;
+        img.alt = movie.title;
+        img.classList.add("movie-poster");
+
+        container.appendChild(img);
     });
 }
+
 
 // Charger les films au démarrage
 fetchMovies();
